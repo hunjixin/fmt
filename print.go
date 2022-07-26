@@ -5,7 +5,6 @@
 package fmt
 
 import (
-	"internal/fmtsort"
 	"io"
 	"reflect"
 	"sync"
@@ -759,7 +758,7 @@ func (p *pp) printValue(value reflect.Value, verb rune, depth int) {
 		} else {
 			p.buf.writeString(mapString)
 		}
-		sorted := fmtsort.Sort(f)
+		sorted := Sort(f)
 		for i, key := range sorted.Key {
 			if i > 0 {
 				if p.fmt.sharpV {
